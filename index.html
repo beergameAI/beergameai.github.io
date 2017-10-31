@@ -61,6 +61,7 @@ img {
 			<p>By the way, these screen shots come from a new, free, computerized version of the beer game developed by <a href="http://opexanalytics.com/">Opex Analytics</a>. You can sign up to receive an e-mail when the game is released <a href="http://beergame.opexanalytics.com/">here</a>. 
 
 			<h2>Numerical Results</h2>
+			
 				<p>The figures below plot the total cost of the four players for two cases: (1) when all four players use a base-stock policy, which is optimal for this setting and therefore provides a baseline (blue curve), and (2) when one of the players is replaced by the DQN agent (green curve). The x-axis indicates the number of episodes on which the DQN is trained. The upper subfigure indicates the total cost, while the lower subfigure indicates the normalized cost, in which the costs of the BS policy and the DQN are divided by BS policy's cost. The figures show that after a relatively small number of training episodes, the AI has learned to play nearly optimally.<p>
 			
 			The following figure represents the case in which the DQN plays the <b>retailer:</b>
@@ -76,10 +77,11 @@ img {
 				<img src="brain6_3_layer_lr000025_multPrd5_dnnUpCnt10000.png" alt="manufacturer follows DQN" width="680" height="536" align="middle"/> 
 				
 
-				<p> <em> <b> Conclusion </b> </em> <p>
-					These results are really incredible!!!. We can learn to play close to optimal solution, with just&mdash;and only just&mdash;some historical data. Without any knowledge how other agents play, what is their ordering policy, etc. 
-					Nowadays that any company has huge datasets, we can easily use those data and optimize their supply chain network. This approach can be easily used in different supply chain with much more complex networks, and more agents. 
-					We will post more results latter. BTW, you also can read the corresponding paper <a href="https://arxiv.org/abs/1708.05924">here </a>.!
+			<h2> Conclusion </h2>
+					<p>The results above are surprising (at least to us) and impressive. They demonstrate that the DQN can learn to play close to the optimal solution, with just&mdash;and only just&mdash;some historical data, without any knowledge of how other the agents play, what their ordering policy is, etc. <p>
+					<p>These days, most companies have huge quantities of data about their supply chains. This research suggests that these data can be used by ML algorithms to make near-optimal decisions in a supply chain. In the figure, we plan to adapt this approach to  different supply chain structures with more complex networks and more agents. Stay tuned on this page for more results.<p>
+			<p> You can read our research paper, "
+A Deep Q-Network for the Beer Game with Partial Information," on <a href="https://arxiv.org/abs/1708.05924">arXiv</a>. Visit the <a href="http://beergame.opexanalytics.com/">Opex Analytics beer game</a> for the computerized version of the game.
 				<!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/XGSy3_Czz8k"> </iframe> -->				
     		</div><!-- /.blurb -->
 		</div><!-- /.container -->
