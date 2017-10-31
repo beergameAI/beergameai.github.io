@@ -45,7 +45,7 @@ img {
 
 
 				<!-- alt="results"  -->
-			<h1>How Well Does It Play the Game?</h1>
+			<h2>How Well Does It Play the Game?</h2>
 				<p> We present the results from a straightforward version of the game in which the DQN plays the role of the wholesaler and the other three players each follow a base-stock policy. (A base-stock policy means we always order to bring the inventory position&mdash;on-hand inventory minus backorders plus on-order inventory&mdash;equal to a fixed value, called the base-stock level. A base-stock policy is known to be optimal for the beer game, assuming all four players use it.) Each stage has a holding cost of 2 per item, per period. The retailer has a shortage cost of 2 per item per period and the other stages do not have a shortage cost.<p>
 			<p>Before the algorithm is trained, the wholesaler plays pretty badly. It stocks way too much inventory, as you can see in the figure below, and causes stockouts at the upstream stages. (Positive inventory is shown as brown boxes and positive numbers. Backorders are shown as red boxes and negative numbers.) <p> 
 				<img src="before_training_100.jpg" alt="before training" width="680" height="382" align="middle"/> 
@@ -58,21 +58,24 @@ img {
 
 				<p> After 45000 training episodes, the AI agent not only plays in a way to keep its inventory level and cost close to zero, but also to minimize the total cost of the system. In fact, it plays very close to a base-stock policy, which is the optimal policy. The whole network is more stable and the inventory levels are closer to zero than in previous screenshots.<p> 
 				<img src="45000_training_100.jpg" alt="after 45000 training episodes" width="680" height="382" align="middle"/> 
+			<p>By the way, these screen shots come from a new, free, computerized version of the beer game developed by <a href="http://opexanalytics.com/">Opex Analytics</a>. You can sign up to receive an e-mail when the game is released <a href="http://beergame.opexanalytics.com/">here</a>. 
 
-				<p> <em> <b> Numerical Results </b> </em> <p>
-				Here we have the cumulative cost of four agents, when one of the agents follows DQN, and other agents playing base stock. In each figure, the upper subfigure provides the total cost, and the lower subfigure provides the normalized cost, in which the both BS policy and DQN costs are divided by BS policy's cost. It is worthy to mention that, for the proposed setting of game BS policy is optimal.
-				As it you see, after few iterations all have learned to play close to optimal solution and continue it to end. The following figure represents the results of the case that DQN plays retailer:
+			<h2>Numerical Results</h2>
+				The figures below plot the total cost of the four players for two cases: (1) when all four players use a base-stock policy, which is optimal for this setting and therefore provides a baseline (blue curve), and (2) when one of the players is replaced by the DQN agent (green curve). The x-axis indicates the number of episodes on which the DQN is trained. The upper subfigure indicates the total cost, while the lower subfigure indicates the normalized cost, in which the costs of the BS policy and the DQN are divided by BS policy's cost. 
+				The figures show that after a relatively small number of training episodes, the AI has learned to play nearly optimally.<p>
+			
+			The following figure represents the case in which the DQN plays the <b>retailer:</b>
 				<img src="brain3_2_layer_lr000025_multPrd10_dnnUpCnt10000.png" alt="retailer follows DQN" width="680" height="536" align="middle"/> 
-				in which there is about 8% of gap compared to the case that all agents follow base stock policy. 
-				The following figure presents the results of the case that DQN plays wholesaler:
+				After it has been sufficiently trained, there is roughly an 8% gap compared to the case in which all agents follow a base-stock policy. <p>
+			
+			<p>Here is the case in which the DQN plays the <b>wholesaler:</b>
 				<img src="brain4_3_layer_lr000025_multPrd10_dnnUpCnt10000.png" alt="wholesaler follows DQN" width="680" height="536" align="middle"/> 
-				in which there is about 6% of gap compared to the case that all agents follow base stock policy. 
-				The following figure provides the results of the case that DQN plays distributor:
+				There is an approximately 6% gap compared to the case in which all agents follow a base-stock policy. 
+			<p>When the DQN plays the <b>distributor</b>, there is a 7% gap:
 				<img src="brain5_3_layer_lr000025_multPrd5_dnnUpCnt10000.png" alt="distributor follows DQN" width="680" height="536" align="middle"/> 
-				in which there is about 7% of gap compared to the case that all agents follow base stock policy. 
-				And finally, the following figure shows the results of the case that DQN plays manufacturer:
+			<p>And finally, when the DQN plays the <b>manufacturer:</b>, there is about a 2% gap compared to the optimal solution:
 				<img src="brain6_3_layer_lr000025_multPrd5_dnnUpCnt10000.png" alt="manufacturer follows DQN" width="680" height="536" align="middle"/> 
-				in which there is about 2% of gap compared to the case that all agents follow base stock policy. 
+				
 
 				<p> <em> <b> Conclusion </b> </em> <p>
 					These results are really incredible!!!. We can learn to play close to optimal solution, with just&mdash;and only just&mdash;some historical data. Without any knowledge how other agents play, what is their ordering policy, etc. 
