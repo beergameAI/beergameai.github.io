@@ -45,17 +45,18 @@ img {
 
 
 				<!-- alt="results"  -->
-				<p> <em> <b> What does it Learn? </b> </em>  <p>
-				<p> Here we have the result of the case that wholesaler plays DQN, and other play base stock policy. All agents have holding cost of 2 per item, per period, retailer has shortage cost of 2 per item, per period and other agents do not have shortage cost. In the following figure you see the result of no training.<p> 
+			<h1>How Well Does It Play the Game?</h1>
+				<p> We present the results from a straightforward version of the game in which the DQN plays the role of the wholesaler and the other three players each follow a base-stock policy. (A base-stock policy means we always order to bring the inventory position&mdash;on-hand inventory minus backorders plus on-order inventory&mdash;equal to a fixed value, called the base-stock level. A base-stock policy is known to be optimal for the beer game, assuming all four players use it.) Each stage has a holding cost of 2 per item, per period. The retailer has a shortage cost of 2 per item per period and the other stages do not have a shortage cost.<p>
+			<p>Before the algorithm is trained, the wholesaler plays pretty badly. It stocks way too much inventory, as you can see in the figure below, and causes stockouts at the upstream stages. (Positive inventory is shown as brown boxes and positive numbers. Backorders are shown as red boxes and negative numbers.) <p> 
 				<img src="before_training_100.jpg" alt="before training" width="680" height="382" align="middle"/> 
 				
-				<p> After 1000 of training episodes, it has learned that there is positive holding cost and it is better to keep its inventory level smaller. <p> 
+				<p> After 1000 training episodes, the DQN agent has learned that there is positive holding cost and so it is better to keep its inventory level smaller. <p> 
 				<img src="1000_training_100.jpg" alt="after 1000 training episodes" width="680" height="382" align="middle"/> 
 
-				<p> After 2000 of training episodes, it has learned that there is no stock-out cost and it is better to keep the inventory its level negative. Also, as you see the whole network is more stable and the inventory levels are closer to zero than previous screenshots.<p> 
+				<p> After 2000 training episodes, it has learned that there is no stock-out cost upstream from the retailer, so it is better to keep its inventory level negative. In general, the whole network is more stable and the inventory levels are all closer to zero than in the previous screenshots.<p> 
 				<img src="2000_training_100.jpg" alt="after 2000 training episodes" width="680" height="382" align="middle"/> 
 
-				<p> After 45000 of training episodes, it has learned almost the optimal policy, and plays in a way to not only keeps its inventory level and cost close to zero, but also plays in a way to minimize the total cost of the system. Apparently, whole network is more stable and the inventory levels are closer to zero than previous screenshots.<p> 
+				<p> After 45000 training episodes, the AI agent not only plays in a way to keep its inventory level and cost close to zero, but also to minimize the total cost of the system. In fact, it plays very close to a base-stock policy, which is the optimal policy. The whole network is more stable and the inventory levels are closer to zero than in previous screenshots.<p> 
 				<img src="45000_training_100.jpg" alt="after 45000 training episodes" width="680" height="382" align="middle"/> 
 
 				<p> <em> <b> Numerical Results </b> </em> <p>
